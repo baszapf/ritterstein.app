@@ -6,24 +6,21 @@ function RittersteinMap() {
   const [rittersteine, setRittersteine] = useState([]);
 
   useEffect(() => {
-    fetch('rittersteine.app/rittersteine.json')
+    fetch(`${process.env.PUBLIC_URL}/rittersteine.json`)
       .then(response => response.json())
       .then(data => {
-        console.log(data);  // Hier sehen wir die geladenen Daten
+        console.log(data);
         setRittersteine(data);
       });
   }, []);
 
-
   return (
-
     <MapContainer center={[49.44, 7.76]} zoom={10} style={{ height: '500px', width: '100%' }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {rittersteine.map((stein, index) => (
         <Marker key={index} position={[stein.lat, stein.lon]}>
           <Popup>{stein.name}</Popup>
         </Marker>
-
       ))}
     </MapContainer>
   );

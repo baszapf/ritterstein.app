@@ -15,7 +15,7 @@ function RittersteinMap() {
     <MapContainer center={[49.4, 8.4]} zoom={12} style={{ height: '500px', width: '100%' }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {rittersteine.map((stein, index) => (
-        <Marker key={index} position={[stein.lat, stein.lng]}>
+        <Marker key={index} position={[stein.lat, stein.lon]}>
           <Popup>{stein.name}</Popup>
         </Marker>
       ))}

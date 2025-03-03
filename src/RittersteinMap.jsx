@@ -57,8 +57,18 @@ function RittersteinMap() {
 
         {/* Benutzerposition */}
         {userPosition && (
-          <Marker position={[userPosition.lat, userPosition.lon]}>
-            <Popup>Deine Position</Popup>
+
+          <Marker
+            key={index}
+            position={[userPosition.lat, userPosition.lon]}
+            icon={L.icon({
+              iconUrl: 'https://unpkg.com/leaflet/dist/images/marker-icon.png', // Standard-Leaflet-Icon
+              iconSize: [25, 41], // Größe des Icons
+              iconAnchor: [12, 41], // Ankerpunkt für das Icon
+              popupAnchor: [1, -34], // Position des Popups
+            })}
+          >
+            <Popup>{stein.name}</Popup>
           </Marker>
         )}
 

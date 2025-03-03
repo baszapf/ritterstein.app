@@ -1,5 +1,507 @@
 [
-  { "name": "Ritterstein 1", "lat": 49.1234, "lng": 8.1234 },
-  { "name": "Ritterstein 2", "lat": 49.5678, "lng": 8.5678 },
-  { "name": "Ritterstein 3", "lat": 49.9012, "lng": 8.9012 }
+  {
+    "name": "R001 - Trift-Holzhof",
+    "lat": 49.045494,
+    "lon": 7.880264
+  },
+  {
+    "name": "R002 - Schanze 1704",
+    "lat": 49.050634,
+    "lon": 7.882207
+  },
+  {
+    "name": "R003 - Löffels-Kreuz",
+    "lat": 49.052396,
+    "lon": 7.880311
+  },
+  {
+    "name": "R004 - Eselsschleif",
+    "lat": 49.055527,
+    "lon": 7.871751
+  },
+  {
+    "name": "R005 - Eselsschleifhäuschen",
+    "lat": 49.057455,
+    "lon": 7.878168
+  },
+  {
+    "name": "R006 - Schanze 1704",
+    "lat": 49.060879,
+    "lon": 7.934848
+  },
+  {
+    "name": "R007 - Wegscheid",
+    "lat": 49.061862,
+    "lon": 7.929677
+  },
+  {
+    "name": "R008 - Mundathütte",
+    "lat": 49.066805,
+    "lon": 7.900468
+  },
+  {
+    "name": "R009 - Glückauf L. v. G. 1838",
+    "lat": 49.061862,
+    "lon": 7.929677
+  },
+  {
+    "name": "R010 - Glückauf L. v. G. 1838",
+    "lat": 49.067503,
+    "lon": 7.811941
+  },
+  {
+    "name": "R011 - R. Buchbacherhof",
+    "lat": 49.068730,
+    "lon": 7.915308
+  },
+  {
+    "name": "R012 - Schanze 1704",
+    "lat": 49.073842,
+    "lon": 7.923581
+  },
+  {
+    "name": "R013 - Hirschtränke",
+    "lat": 49.075278,
+    "lon": 7.905416
+  },
+  {
+    "name": "R014 - Drei Buchen",
+    "lat": 49.075700,
+    "lon": 7.922294
+  },
+  {
+    "name": "R015 - R. Schloßhütte",
+    "lat": 49.079396,
+    "lon": 7.920007
+  },
+  {
+    "name": "R016 - Krönungsbusch",
+    "lat": 49.080895,
+    "lon": 7.964935
+  },
+  {
+    "name": "R017 - Fundstelle Biberkopf 1902",
+    "lat": 49.080659,
+    "lon": 7.864002
+  },
+  {
+    "name": "R018 - Hühnerfels",
+    "lat": 49.083794,
+    "lon": 7.907562
+  },
+  {
+    "name": "R019 - Pfälzer Unger",
+    "lat": 49.085117,
+    "lon": 7.886406
+  },
+  {
+    "name": "R020 - Tisch",
+    "lat": 49.087578,
+    "lon": 7.918966
+  },
+  {
+    "name": "R021 - Drei Eichen",
+    "lat": 49.087831,
+    "lon": 7.925580
+  },
+  {
+    "name": "R022 - Glückauf L. v. G. 1835",
+    "lat": 49.087644,
+    "lon": 7.832070
+  },
+  {
+    "name": "R023 - Am Bild",
+    "lat": 49.090521,
+    "lon": 7.925069
+  },
+  {
+    "name": "R024 - Am Bild",
+    "lat": 49.091351,
+    "lon": 7.950764
+  },
+  {
+    "name": "R025 - Bild 1756",
+    "lat": 49.091221,
+    "lon": 7.950852
+  },
+  {
+    "name": "R026 - An der Bildeiche",
+    "lat": 49.128642,
+    "lon": 7.895435
+  },
+  {
+    "name": "R027 - Signal",
+    "lat": 49.086276,
+    "lon": 7.913782
+  },
+  {
+    "name": "R028 - Ehem. Eisenerzgruben",
+    "lat": 49.097180,
+    "lon": 7.945523
+  },
+  {
+    "name": "R029 - Ehem. Bleierzgrube",
+    "lat": 49.100931,
+    "lon": 7.871193
+  },
+  {
+    "name": "R030 - Ehem. Eisenerzgruben",
+    "lat": 49.103662,
+    "lon": 7.967658
+  },
+  {
+    "name": "R031 - Neues Landlöchel",
+    "lat": 49.114408,
+    "lon": 7.916921
+  },
+  {
+    "name": "R032 - Altes Landlöchel",
+    "lat": 49.117566,
+    "lon": 7.917409
+  },
+  {
+    "name": "R033 - Oberrot",
+    "lat": 49.122007,
+    "lon": 7.970143
+  },
+  {
+    "name": "R034 - Silzer Linde",
+    "lat": 49.126394,
+    "lon": 7.935146
+  },
+  {
+    "name": "R035 - Am Holderbild",
+    "lat": 49.132085,
+    "lon": 7.964698
+  },
+  {
+    "name": "R036 - Klosterbrunnen",
+    "lat": 49.167579,
+    "lon": 7.691354
+  },
+  {
+    "name": "R037 - R. Kaleseyerhof 1855",
+    "lat": 49.093680,
+    "lon": 7.552370
+  },
+  {
+    "name": "R038 - Vogelshütte",
+    "lat": 49.223254,
+    "lon": 7.758382
+  },
+  {
+    "name": "R039 - Kunzelmannsgut",
+    "lat": 49.210150,
+    "lon": 7.757950
+  },
+  {
+    "name": "R040 - Granitzenhütte",
+    "lat": 49.222030,
+    "lon": 7.796710
+  },
+  {
+    "name": "R041 - Prinzenweg",
+    "lat": 49.175568,
+    "lon": 8.001619
+  },
+  {
+    "name": "R042 - Cramer-Pfad",
+    "lat": 49.182889,
+    "lon": 7.983859
+  },
+  {
+    "name": "R043 - Cramer-Pfad",
+    "lat": 49.173629,
+    "lon": 8.001161
+  },
+  {
+    "name": "R044 - Am Tisch – Alte Geraide-Gerichtsstätte",
+    "lat": 49.180401,
+    "lon": 7.992731
+  },
+  {
+    "name": "R045 - R. Neu-Falkenburg",
+    "lat": 49.205700,
+    "lon": 7.866130
+  },
+  {
+    "name": "R046 - Tiergarten",
+    "lat": 49.208429,
+    "lon": 7.858487
+  },
+  {
+    "name": "R047 - Grimmeisenpfad",
+    "lat": 49.208917,
+    "lon": 7.961154
+  },
+  {
+    "name": "R048 - Wolfsgrub 105 Schr.",
+    "lat": 49.217750,
+    "lon": 7.877330
+  },
+  {
+    "name": "R049 - R. Wiligartaburg",
+    "lat": 49.224166,
+    "lon": 7.901467
+  },
+  {
+    "name": "R050 - Wildsauhütte",
+    "lat": 49.228667,
+    "lon": 7.799001
+  },
+  {
+    "name": "R051 - Am Zwiesel",
+    "lat": 49.242440,
+    "lon": 7.898320
+  },
+  {
+    "name": "R052 - Eußertaler Klostergut",
+    "lat": 49.243071,
+    "lon": 7.836787
+  },
+  {
+    "name": "R053 - Geschützt",
+    "lat": 49.243190,
+    "lon": 7.832530
+  },
+  {
+    "name": "R054 - Schäferei",
+    "lat": 49.243080,
+    "lon": 7.758320
+  },
+  {
+    "name": "R055 - Spalt",
+    "lat": 49.243342,
+    "lon": 7.792338
+  },
+  {
+    "name": "R056 - Königswoog",
+    "lat": 49.246456,
+    "lon": 7.777877
+  },
+  {
+    "name": "R057 - Dreiherrenstein",
+    "lat": 49.246583,
+    "lon": 7.827450
+  },
+  {
+    "name": "R058 - Zimmer-Platz bei Erbauung der Burg Scharfeneck",
+    "lat": 49.249551,
+    "lon": 8.029196
+  },
+  {
+    "name": "R059 - R. Wüstmühle",
+    "lat": 49.247233,
+    "lon": 7.833726
+  },
+  {
+    "name": "R060 - R. Jagdhäuschen 20 Schr.",
+    "lat": 49.256843,
+    "lon": 7.824030
+  },
+  {
+    "name": "R061 - Schanze 1794 100 Schr.",
+    "lat": 49.289810,
+    "lon": 7.827570
+  },
+  {
+    "name": "R062 - Hauptschanze I",
+    "lat": 49.298202,
+    "lon": 8.020083
+  },
+  {
+    "name": "R063 - Schanze II",
+    "lat": 49.295518,
+    "lon": 8.022409
+  },
+  {
+    "name": "R064 - Schanze III",
+    "lat": 49.294136,
+    "lon": 8.027259
+  },
+  {
+    "name": "R064a - Schanze III",
+    "lat": 49.294274,
+    "lon": 8.027880
+  },
+  {
+    "name": "R065 - Schanze IV",
+    "lat": 49.299500,
+    "lon": 8.021820
+  },
+  {
+    "name": "R066 - Verhau vor Schanze I",
+    "lat": 49.297954,
+    "lon": 8.015915
+  },
+  {
+    "name": "R067 - Verhau unter Schanze IV",
+    "lat": 49.299920,
+    "lon": 8.021962
+  },
+  {
+    "name": "R068 - Stelle, an welcher General von Pfau am 13. Juli 1794 fiel",
+    "lat": 49.297403,
+    "lon": 8.024533
+  },
+  {
+    "name": "R069 - Kohlplatz – Rückzugsgefecht des Batl. von Schladen unter Major von Borck am 13. Juli 1794",
+    "lat": 49.285044,
+    "lon": 8.053262
+  },
+  {
+    "name": "R070 - Prinzregent Luitpold 12. März 1911",
+    "lat": 49.248581,
+    "lon": 7.825180
+  },
+  {
+    "name": "R071 - Am Holländerklotz",
+    "lat": 49.258029,
+    "lon": 7.828261
+  },
+  {
+    "name": "R072 - Schwörstein",
+    "lat": 49.260658,
+    "lon": 7.986649
+  },
+  {
+    "name": "R073 - Am Essig",
+    "lat": 49.279370,
+    "lon": 7.926090
+  },
+  {
+    "name": "R074 - Fresswasen",
+    "lat": 49.289293,
+    "lon": 7.934614
+  },
+  {
+    "name": "R075 - Todtermann",
+    "lat": 49.293330,
+    "lon": 7.979053
+  },
+  {
+    "name": "R076 - Feuerplatz",
+    "lat": 49.295289,
+    "lon": 7.966003
+  },
+  {
+    "name": "R077 - Kirschbaum",
+    "lat": 49.296853,
+    "lon": 7.957909
+  },
+  {
+    "name": "R078 - Mosisbruch",
+    "lat": 49.295387,
+    "lon": 7.861025
+  },
+  {
+    "name": "R079 - Kapitainshuette",
+    "lat": 49.301180,
+    "lon": 7.842430
+  },
+  {
+    "name": "R080 - Preussenstein",
+    "lat": 49.299300,
+    "lon": 7.841910
+  },
+  {
+    "name": "R081 - Schanze 1794",
+    "lat": 49.314340,
+    "lon": 7.839230
+  },
+  {
+    "name": "R082 - Suppenschüssel",
+    "lat": 49.298410,
+    "lon": 7.968121
+  },
+  {
+    "name": "R083 - Boll",
+    "lat": 49.299566,
+    "lon": 7.961141
+  },
+  {
+    "name": "R084 - Weisserstein",
+    "lat": 49.312156,
+    "lon": 7.790982
+  },
+  {
+    "name": "R085 - An den drei Steinen",
+    "lat": 49.314740,
+    "lon": 7.855860
+  },
+  {
+    "name": "R086 - Schuhmacherstiefel",
+    "lat": 49.314260,
+    "lon": 8.014550
+  },
+  {
+    "name": "R087 - Venninger Turm",
+    "lat": 49.317823,
+    "lon": 7.980760
+  },
+  {
+    "name": "R088 - Bei den Windlöchern",
+    "lat": 49.317637,
+    "lon": 7.926461
+  },
+  {
+    "name": "R089 - Immensack",
+    "lat": 49.318364,
+    "lon": 7.920768
+  },
+  {
+    "name": "R090 - Zum Kanzelfelsen mit den Inschriften der Teilung der Haingeraide 108 Schr.",
+    "lat": 49.325499,
+    "lon": 8.018692
+  },
+  {
+    "name": "R091 - Zum Kanzelfelsen 120 Schr.",
+    "lat": 49.326694,
+    "lon": 8.020503
+  },
+  {
+    "name": "R092 - Zum Röhringsbrunnen 70 Schr. Rechts",
+    "lat": 49.326844,
+    "lon": 8.004629
+  },
+  {
+    "name": "R093 - Hexlerhütte",
+    "lat": 49.333740,
+    "lon": 7.855043
+  },
+  {
+    "name": "R094 - Erzgruben",
+    "lat": 49.342958,
+    "lon": 7.861384
+  },
+  {
+    "name": "R095 - Alte Schmelz",
+    "lat": 49.358622,
+    "lon": 7.924870
+  },
+  {
+    "name": "R096 - Ins Legeltal",
+    "lat": 49.358622,
+    "lon": 7.924870
+  },
+  {
+    "name": "R097 - R. Jagdhaus",
+    "lat": 49.333863,
+    "lon": 7.887196
+  },
+  {
+    "name": "R098 - Speckhenrich",
+    "lat": 49.330470,
+    "lon": 7.876880
+  },
+  {
+    "name": "R099 - Kohlbrunnen",
+    "lat": 49.331906,
+    "lon": 7.986877
+  },
+  {
+    "name": "R100 - Cramer",
+    "lat": 49.334106,
+    "lon": 7.979492
+  }
 ]

@@ -6,7 +6,7 @@ function RittersteinMap() {
   const [rittersteine, setRittersteine] = useState([]);
 
   useEffect(() => {
-    fetch(`/rittersteine.json`)
+    fetch(`rittersteine.json`)
       .then(response => response.json())
       .then(data => {
         console.log(data);

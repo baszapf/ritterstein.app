@@ -78,9 +78,9 @@ function RittersteinMap() {
             key={index}
             position={[stein.lat, stein.lon]}
             icon={L.icon({
-              iconUrl: 'https://example.com/custom-icon.png', // Hier kann ein benutzerdefiniertes Icon angegeben werden
-              iconSize: [25, 25], // Größe des Icons
-              iconAnchor: [12, 12], // Ankerpunkt für das Icon
+              iconUrl: 'https://unpkg.com/leaflet/dist/images/marker-icon.png', // Hier kann ein benutzerdefiniertes Icon angegeben werden
+              iconSize: [25, 41], // Größe des Icons
+              iconAnchor: [12, 41], // Ankerpunkt für das Icon
             })}
           >
             <Popup>{stein.name}</Popup>

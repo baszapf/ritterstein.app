@@ -8,11 +8,6 @@ function RittersteinMap() {
   const [rittersteine, setRittersteine] = useState([]);
   const [userPosition, setUserPosition] = useState(null);
   const [closestRittersteine, setClosestRittersteine] = useState([]);
-  const customIcon = L.divIcon({
-    className: 'leaflet-div-icon',
-    html: `<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" r="12" fill="red" /></svg>`,
-    iconSize: [30, 30],
-  });
 
   useEffect(() => {
     // Daten für Rittersteine laden
@@ -76,9 +71,10 @@ function RittersteinMap() {
             key={index}
             position={[stein.lat, stein.lon]}
             icon={L.icon({
-              iconUrl: 'https://example.com/custom-icon.png', // Hier kann ein benutzerdefiniertes Icon angegeben werden
-              iconSize: [25, 25], // Größe des Icons
-              iconAnchor: [12, 12], // Ankerpunkt für das Icon
+              iconUrl: 'https://unpkg.com/leaflet/dist/images/marker-icon.png', // Standard-Leaflet-Icon
+              iconSize: [25, 41], // Größe des Icons
+              iconAnchor: [12, 41], // Ankerpunkt für das Icon
+              popupAnchor: [1, -34], // Position des Popups
             })}
           >
             <Popup>{stein.name}</Popup>

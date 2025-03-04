@@ -68,7 +68,7 @@ function RittersteinMap() {
               popupAnchor: [1, -34], // Position des Popups
             })}
           >
-            <Popup>{stein.name}</Popup>
+            <Popup>"Position"</Popup>
           </Marker>
         )}
 

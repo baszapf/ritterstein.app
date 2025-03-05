@@ -1,61 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet'; // Für benutzerdefinierte Marker-Icons
-import { getDistance } from 'geolib'; // Für Entfernungsberechnungen
+import L from 'leaflet';
+import { getDistance } from 'geolib';
+import { rittersteinIcon, closestRittersteinIcon, userIcon } from './assets/icons/icons';
+
+function MapCenter({ position }) {
+  const map = useMap();
+  useEffect(() => {
+    if (position) {
+      map.setView(position, map.getZoom(), { animate: true });
+    }
+  }, [position, map]);
+
+  return null;
+}
 
 function RittersteinMap() {
   const [rittersteine, setRittersteine] = useState([]);
   const [userPosition, setUserPosition] = useState(null);
   const [closestRittersteine, setClosestRittersteine] = useState([]);
 
-  const userIcon = new L.DivIcon({
-    html: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-      <rect x="9" y="0" width="6" height="24" fill="red"/>
-      <rect x="0" y="9" width="24" height="6" fill="red"/>
-    </svg>`,
-    className: '', // Entfernt Leaflet-Standard-Styling
-    iconSize: [24, 24],
-    iconAnchor: [12, 12],
-  });
-  export default userIcon;
-
-  const rittersteinIcon = new L.DivIcon({
-    html: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="48" viewBox="0 0 24 36">
-      <path fill="red" stroke="black" stroke-width="2" d="M12 1C6.48 1 2 5.48 2 11c0 7.18 10 21 10 21s10-13.82 10-21c0-5.52-4.48-10-10-10z"/>
-      <circle cx="12" cy="11" r="4" fill="white" stroke="black" stroke-width="2"/>
-    </svg>`,
-    className: '',
-    iconSize: [32, 48],
-    iconAnchor: [16, 48],
-    popupAnchor: [0, -48]
-  });
-  export default rittersteinIcon;
-
-  
-
   useEffect(() => {
-    // Daten für Rittersteine laden
+    // Lade die Rittersteine-Daten
     fetch('rittersteine.json')
       .then(response => response.json())
-      .then(data => {
-        setRittersteine(data);
-      });
+      .then(data => setRittersteine(data));
 
-    // Benutzerposition abrufen
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setUserPosition({
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
+    // Funktion, um die Position des Benutzers abzurufen
+    const updateUserPosition = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          setUserPosition({
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          });
         });
-      });
-    }
+      }
+    };
+
+    // Initiale Position abrufen
+    updateUserPosition();
+    
+    // Aktualisiere die Position alle 10 Sekunden
+    const interval = setInterval(updateUserPosition, 10000);
+    
+    // Aufräumen des Intervalls bei Unmount
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     if (userPosition && rittersteine.length > 0) {
-      // Berechnung der 3 nächstgelegenen Rittersteine
+      // Berechne die Entfernungen zu den Rittersteinen
       const sortedSteine = rittersteine
         .map((stein) => ({
           ...stein,
@@ -64,50 +60,48 @@ function RittersteinMap() {
             { latitude: stein.lat, longitude: stein.lon }
           ),
         }))
-        .sort((a, b) => a.distance - b.distance); // Sortiere nach Nähe
+        .sort((a, b) => a.distance - b.distance); // Sortiere nach Entfernungen
 
-      setClosestRittersteine(sortedSteine.slice(0, 3)); // Nimm nur die 3 nächsten
+      // Speichere die drei nächstgelegenen Rittersteine
+      setClosestRittersteine(sortedSteine.slice(0, 3));
     }
   }, [userPosition, rittersteine]);
 
   return (
     <div>
-      {/* Karte */}
       <MapContainer
-        center={[49.44, 7.76]}
+        center={userPosition ? [userPosition.lat, userPosition.lon] : [49.44, 7.76]}
         zoom={10}
         style={{ height: '500px', width: '100%' }}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-        {/* Benutzerposition */}
+        {/* Karte immer auf Benutzerposition zentrieren */}
+        {userPosition && <MapCenter position={[userPosition.lat, userPosition.lon]} />}
+
+        {/* Marker für Benutzerposition */}
         {userPosition && (
           <Marker position={[userPosition.lat, userPosition.lon]} icon={userIcon}>
             <Popup>Deine Position</Popup>
           </Marker>
         )}
 
-        {/* Rittersteine */}
+        {/* Ritterstein Marker */}
         {rittersteine.map((stein, index) => (
-
-          <Marker
-            key={index}
-            position={[stein.lat, stein.lon]}
-            icon={rittersteinIcon}
-          >
+          <Marker key={index} position={[stein.lat, stein.lon]} icon={rittersteinIcon}>
             <Popup>{stein.name}</Popup>
           </Marker>
         ))}
 
-        {/* Nächstgelegene Rittersteine */}
+        {/* Marker für die drei nächstgelegenen Rittersteine */}
         {closestRittersteine.map((stein, index) => (
-          <Marker key={index} position={[stein.lat, stein.lon]}>
+          <Marker key={index} position={[stein.lat, stein.lon]} icon={closestRittersteinIcon}>
             <Popup>{`${stein.name} - ${Math.round(stein.distance / 100)} Meter entfernt`}</Popup>
           </Marker>
         ))}
       </MapContainer>
 
-      {/* Liste der 3 nächstgelegenen Rittersteine */}
+      {/* Liste der nächstgelegenen Rittersteine */}
       <div>
         <h3>Nächstgelegene 3 Rittersteine:</h3>
         <ul>

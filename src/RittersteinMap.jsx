@@ -105,7 +105,7 @@ function RittersteinMap() {
             </Polyline>
           ))}
       </MapContainer>
-
+/*
       <div>
         <h3>Nächstgelegene 3 Rittersteine:</h3>
         <ul>
@@ -114,6 +114,7 @@ function RittersteinMap() {
           ))}
         </ul>
       </div>
+*/
     </div>
   );
 }

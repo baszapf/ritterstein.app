@@ -1,17 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
 import { getDistance } from 'geolib';
 import { rittersteinIcon, closestRittersteinIcon, userIcon } from './assets/icons/icons';
+
+function MapController({ userPosition }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (userPosition) {
+      map.setView([userPosition.lat, userPosition.lon], map.getZoom(), { animate: true });
+    }
+  }, [userPosition, map]);
+
+  return null;
+}
 
 function RittersteinMap() {
   const [rittersteine, setRittersteine] = useState([]);
   const [userPosition, setUserPosition] = useState(null);
   const [closestRittersteine, setClosestRittersteine] = useState([]);
   const [showOverlay, setShowOverlay] = useState(true);
-  const mapRef = useRef(null);
-  const initialCentered = useRef(false);
 
   useEffect(() => {
     fetch('rittersteine.json')
@@ -52,28 +61,9 @@ function RittersteinMap() {
   }, [userPosition, rittersteine]);
 
   useEffect(() => {
-    if (userPosition && mapRef.current && !initialCentered.current) {
-      mapRef.current.setView([userPosition.lat, userPosition.lon], mapRef.current.getZoom(), { animate: true });
-      initialCentered.current = true;
-    }
-  }, [userPosition]);
-
-  useEffect(() => {
     const timer = setTimeout(() => setShowOverlay(false), 2000);
     return () => clearTimeout(timer);
   }, []);
-
-  const centerMapOnUser = () => {
-  console.log('Button clicked: Centering map on user position');
-  if (mapRef.current && userPosition) {
-    console.log('Map reference found. Centering now.');
-    mapRef.current.setView([userPosition.lat, userPosition.lon], mapRef.current.getZoom(), { animate: true });
-    mapRef.current.invalidateSize(); // Hilft bei Rendering-Problemen
-  } else {
-    console.log('Error: Map reference or user position not available.');
-  }
-};
-
 
   return (
     <div style={{ position: 'relative' }}>
@@ -102,8 +92,8 @@ function RittersteinMap() {
         center={[49.44, 7.76]}
         zoom={10}
         style={{ height: '500px', width: '100%' }}
-        whenCreated={(map) => { mapRef.current = map; }}
       >
+        <MapController userPosition={userPosition} />
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
         {userPosition && (
@@ -143,7 +133,14 @@ function RittersteinMap() {
       </MapContainer>
 
       <button
-        onClick={centerMapOnUser}
+        onClick={() => {
+          if (userPosition) {
+            const map = mapRef.current;
+            if (map) {
+              map.setView([userPosition.lat, userPosition.lon], map.getZoom(), { animate: true });
+            }
+          }
+        }}
         style={{
           position: 'absolute',
           top: '10px',

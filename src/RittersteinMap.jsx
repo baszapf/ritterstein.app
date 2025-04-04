@@ -12,7 +12,6 @@ function MapController({ userPosition }) {
       map.setView([userPosition.lat, userPosition.lon], map.getZoom(), { animate: true });
     }
   }, [userPosition, map]);
-
   return null;
 }
 
@@ -21,6 +20,12 @@ function RittersteinMap() {
   const [userPosition, setUserPosition] = useState(null);
   const [closestRittersteine, setClosestRittersteine] = useState([]);
   const [showOverlay, setShowOverlay] = useState(true);
+  const centerMapOnUser = () => {
+    if (!userPosition || !mapRef.current) return;
+    console.log("Karte wird auf Nutzerposition zentriert");
+    mapRef.current.setView([userPosition.lat, userPosition.lon], mapRef.current.getZoom(), { animate: true });
+  };
+
 
   useEffect(() => {
     fetch('rittersteine.json')
@@ -47,18 +52,25 @@ function RittersteinMap() {
   useEffect(() => {
     if (userPosition && rittersteine.length > 0) {
       const sortedSteine = rittersteine
-        .map((stein) => ({
-          ...stein,
-          distance: getDistance(
+        .map((stein) => {
+          const distance = getDistance(
             { latitude: userPosition.lat, longitude: userPosition.lon },
             { latitude: stein.lat, longitude: stein.lon }
-          ),
-        }))
+          );
+
+          console.log(`Distanz zu ${stein.name}: ${distance} Meter`);
+
+          return {
+            ...stein,
+            distance,
+          };
+        })
         .sort((a, b) => a.distance - b.distance);
 
       setClosestRittersteine(sortedSteine.slice(0, 3));
     }
   }, [userPosition, rittersteine]);
+  
 
   useEffect(() => {
     const timer = setTimeout(() => setShowOverlay(false), 2000);
@@ -131,16 +143,8 @@ function RittersteinMap() {
             </Polyline>
           ))}
       </MapContainer>
-
       <button
-        onClick={() => {
-          if (userPosition) {
-            const map = mapRef.current;
-            if (map) {
-              map.setView([userPosition.lat, userPosition.lon], map.getZoom(), { animate: true });
-            }
-          }
-        }}
+        onClick={centerMapOnUser}
         style={{
           position: 'absolute',
           top: '10px',
@@ -148,6 +152,8 @@ function RittersteinMap() {
           zIndex: 1000,
           padding: '10px',
           background: 'white',
+          color: 'black',
+          fontWeight: 'bold',
           border: '1px solid black',
           borderRadius: '5px',
           cursor: 'pointer',
